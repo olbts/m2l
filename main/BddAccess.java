@@ -80,8 +80,8 @@ public class BddAccess {
 			resMeta=(ResultSetMetaData) rs.getMetaData();
 			System.out.println(rs.getClass().getName());
 			//recuperer le nombre de colonne de la reponse
-			int nbCols = resMeta.getColumnCount();
-			String nbRows = resMeta.getColumnLabel(2);
+			// int nbCols = resMeta.getColumnCount();
+			// String nbRows = resMeta.getColumnLabel(2);
 			
 				
 			//affichage des noms des colonnes
@@ -89,7 +89,7 @@ public class BddAccess {
 				//System.out.print(resMeta.getColumnName(i) + " |"+" " );
 			//}
 			int numeroConseil = 1;
-			reponse = "<html><div style=\"background-color=\"red\";padding=2px\">";
+			reponse = "<html><div>";
 			//traitement de la requete
 			while(rs.next()){
 					String stringContenu = "";
@@ -102,7 +102,7 @@ public class BddAccess {
 					}
 					String titre ="<h4><font color =\"red\">" + numeroConseil + ". " +   rs.getObject(1).toString()+"</font></h4>";
 					String date = "<font color =\"blue\">Date de parution :" + rs.getObject(3).toString()+"</font>";
-					reponse = reponse  + "<p style=\"color=\"red\";text-wrap: wrap;width=410px;height=310px;border=1px solid blue\">"+ titre + "<br>"+ date + "<br>" + stringContenu +"<hr></p>";
+					reponse = reponse  + "<p >"+ titre + "<br>"+ date + "<br>" + stringContenu +"<hr></p>";
 					numeroConseil = numeroConseil + 1 ;
 				}
 			reponse = reponse + "</div></html>";
